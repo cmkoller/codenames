@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170128041308) do
+ActiveRecord::Schema.define(version: 20170131185637) do
 
   create_table "cards", force: :cascade do |t|
     t.string  "word"
     t.integer "team"
     t.boolean "revealed", default: false
     t.integer "order"
+    t.boolean "assassin", default: false
   end
 
   create_table "games", force: :cascade do |t|
