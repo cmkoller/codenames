@@ -16,7 +16,7 @@ class CardsView extends Component {
 
   componentDidMount() {
     this.players.bind('card_update', function(player){
-      this._getUpdatedPlayers();
+      this._getUpdatedCards();
     }, this);
 
     this._getUpdatedCards();
@@ -32,6 +32,7 @@ class CardsView extends Component {
 
   render() {
     let user = this.props.user;
+    let revealCard = this.props.revealCard;
 
     let cardsList = (cards) => {
       return (
@@ -44,8 +45,16 @@ class CardsView extends Component {
             classNames += card.revealed;
           }
 
+          let revealThisCard
+
           return (
-            <Card word={card.word} key={card.word} classNames={classNames} />
+            <Card
+              word={card.word}
+              key={card.id}
+              id={card.id}
+              classNames={classNames}
+              revealCard={revealCard}
+            />
           )
         })
       )

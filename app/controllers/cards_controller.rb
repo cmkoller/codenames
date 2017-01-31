@@ -20,6 +20,6 @@ class CardsController < ApplicationController
   end
 
   def card_params
-    params.require(:card).permit()
+    params.require(:card).permit(:revealed)
   end
 end
