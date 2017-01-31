@@ -1,0 +1,51 @@
+.codename-tile {
+  width: 20%;
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+
+  .card {
+    padding: 10px;
+  }
+
+  &.blue {
+    background-color: transparent !important;
+
+    .card {
+      background-color: #2196f3;
+    }
+
+    &:not(.true) {
+      background-color: transparentize(#2196f3, .6) !important;
+
+      .card {
+        background-color: white;
+      }
+    }
+  }
+
+  &.red {
+    background-color: transparent !important;
+
+    .card {
+      background-color: #f44336;
+    }
+
+    &:not(.true) {
+      background-color: transparentize(#f44336, .6) !important;
+
+      .card {
+        background-color: white;
+      }
+    }
+  }
+
+  &.null.true .card {
+    background-color: #ffeb3b;
+  }
+
+  .card .card-title {
+    font-size: 15px;
+  }
+}
