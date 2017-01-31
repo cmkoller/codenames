@@ -37,22 +37,15 @@ class CardsView extends Component {
     let cardsList = (cards) => {
       return (
         cards.map(function(card){
-          let classNames = "";
-
-          if(user.role == "hinter" || card.revealed == true) {
-            classNames += card.team;
-            classNames += " ";
-            classNames += card.revealed;
-          }
-
-          let revealThisCard
-
           return (
             <Card
               word={card.word}
               key={card.id}
               id={card.id}
-              classNames={classNames}
+              revealed={card.revealed}
+              team={card.team}
+              userRole={user.role}
+              assassin={card.assassin}
               revealCard={revealCard}
             />
           )
