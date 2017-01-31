@@ -45,6 +45,7 @@ class CardsView extends Component {
               revealed={card.revealed}
               team={card.team}
               userRole={user.role}
+              assassin={card.assassin}
               revealCard={revealCard}
             />
           )

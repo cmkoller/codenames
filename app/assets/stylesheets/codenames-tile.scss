@@ -10,45 +10,40 @@
   }
 
   &.blue {
-    background-color: transparent !important;
+    background-color: transparentize(#2196f3, .6) !important;
 
-    &.revealed {
-      .card {
-        background-color: #2196f3;
-      }
+    &.revealed .card {
+      background-color: #2196f3;
     }
 
-    &.hidden {
-      background-color: transparentize(#2196f3, .6) !important;
-
-      .card {
-        background-color: white;
-      }
+    &.hidden .card {
+      background-color: white;
     }
   }
 
   &.red {
-    background-color: transparent !important;
-    &.revealed {
-      .card {
-        background-color: #f44336;
-      }
+    background-color: transparentize(#f44336, .6) !important;
+
+    &.revealed .card {
+      background-color: #f44336;
     }
 
-    &.hidden {
-      background-color: transparentize(#f44336, .6) !important;
-
-      .card {
-        background-color: white;
-      }
+    &.hidden .card {
+      background-color: white;
     }
   }
 
   &.null {
-    &.revealed {
-      .card {
-        background-color: #ffeb3b;
-      }
+    &.revealed .card {
+      background-color: #ffeb3b;
+    }
+  }
+
+  &.assassin {
+    background-color: #757575;
+
+    &.revealed .card {
+      background-color: #757575;
     }
   }
 

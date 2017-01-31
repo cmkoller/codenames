@@ -6,17 +6,19 @@ class Card extends Component {
   }
 
   render() {
-    var { revealCard, word, id, revealed, team, userRole } = this.props;
+    var { revealCard, word, id, revealed, team, userRole, assassin } = this.props;
 
     let revealThisCard = () => {
       revealCard(id);
     }
 
     let cardClassNames = () => {
-      let result = ""
+      let result = "";
+      let hinter = (userRole === "hinter");
 
-      revealed === true ? result += `revealed ${team} ` : result += `hidden `
-      userRole === "hinter" ? result += `${team} ` : ""
+      revealed ? result += `revealed ${team} ` : result += `hidden `
+      hinter ? result += `${team} ` : ""
+      assassin && hinter ? result += `assassin ` : ""
 
       return result;
     }
