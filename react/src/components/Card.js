@@ -6,12 +6,23 @@ class Card extends Component {
   }
 
   render() {
+    var { revealCard, word, id, revealed, team, userRole } = this.props;
+
     let revealThisCard = () => {
-      this.props.revealCard(this.props.id);
+      revealCard(id);
+    }
+
+    let cardClassNames = () => {
+      let result = ""
+
+      revealed === true ? result += `revealed ${team} ` : result += `hidden `
+      userRole === "hinter" ? result += `${team} ` : ""
+
+      return result;
     }
 
     return(
-      <div className={`codename-tile ${this.props.classNames}`}>
+      <div className={`codename-tile ${cardClassNames()}`}>
         <div className="card" onClick={revealThisCard}>
           <span className="card-title">{this.props.word}</span>
         </div>

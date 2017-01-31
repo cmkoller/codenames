@@ -12,11 +12,13 @@
   &.blue {
     background-color: transparent !important;
 
-    .card {
-      background-color: #2196f3;
+    &.revealed {
+      .card {
+        background-color: #2196f3;
+      }
     }
 
-    &:not(.true) {
+    &.hidden {
       background-color: transparentize(#2196f3, .6) !important;
 
       .card {
@@ -27,12 +29,13 @@
 
   &.red {
     background-color: transparent !important;
-
-    .card {
-      background-color: #f44336;
+    &.revealed {
+      .card {
+        background-color: #f44336;
+      }
     }
 
-    &:not(.true) {
+    &.hidden {
       background-color: transparentize(#f44336, .6) !important;
 
       .card {
@@ -41,8 +44,12 @@
     }
   }
 
-  &.null.true .card {
-    background-color: #ffeb3b;
+  &.null {
+    &.revealed {
+      .card {
+        background-color: #ffeb3b;
+      }
+    }
   }
 
   .card .card-title {
