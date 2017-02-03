@@ -4,7 +4,7 @@ import { change, formValueSelector, reduxForm } from 'redux-form';
 import { loadUserData } from './../actions/loadUserData';
 import { postUsername } from './../actions/postUsername';
 import { postTeamRole } from './../actions/postTeamRole';
-import { startGame, loadStartedGame } from './../actions/startGame';
+import { startGame, loadStartedGame, checkStartedGame } from './../actions/startGame';
 import WelcomeView from './../components/WelcomeView';
 import GamePlayContainer from './../containers/GamePlayContainer';
 import TeamView from './../components/TeamView';
@@ -58,6 +58,7 @@ class MainContainer extends Component {
         team={this.props.team}
         postUsername={this.props.postUsername}
         postTeamRole={this.props.postTeamRole}
+        checkStartedGame={this.props.checkStartedGame}
         startGame={this.props.startGame}
       />
     }
@@ -119,6 +120,7 @@ let mapDispatchToProps = (dispatch) => {
     loadStartedGame: () => dispatch(loadStartedGame()),
     postUsername: (username) => dispatch(postUsername(username)),
     postTeamRole: (username, team, role) => dispatch(postTeamRole(username, team, role)),
+    checkStartedGame: () => dispatch(checkStartedGame()),
     startGame: () => dispatch(startGame())
   };
 }
