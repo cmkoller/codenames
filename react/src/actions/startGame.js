@@ -16,8 +16,21 @@ const startGame = () => dispatch => {
     });
 };
 
+const checkStartedGame = () => dispatch => {
+  return codeNamesApi.checkStartedGame()
+    .then(response => {
+      response.json().then(function(json) {
+        if(json.playing) {
+          dispatch(markGameAsStarted())
+          sessionStorage.gameStarted = true
+        }
+      });
+    });
+};
+
 const loadStartedGame = () => dispatch => {
   dispatch(markGameAsStarted())
 };
 
-export { startGame, loadStartedGame };
+
+export { startGame, loadStartedGame, checkStartedGame};

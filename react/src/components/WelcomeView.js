@@ -113,6 +113,7 @@ class WelcomeView extends Component {
     let team = this.props.team;
 
     if (user.ready) {
+      this.props.checkStartedGame();
       return(<ReadyToPlay user={user} postTeamRole={this.props.postTeamRole} startGame={this.props.startGame} />);
     } else if (user.username && team) {
       return(<ReadyToPlayButton user={user} postTeamRole={this.props.postTeamRole} />);

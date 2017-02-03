@@ -9,6 +9,10 @@ class GamesController < ApplicationController
 
   def create
     @cards = CardGenerator.new.generate
+    Game.create(started: true)
+
+    Pusher.trigger('games', 'game_started', {})
+
     respond_to do |format|
       format.json { render json: {
           cards: @cards
