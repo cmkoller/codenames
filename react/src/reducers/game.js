@@ -1,4 +1,4 @@
-import { START_GAME } from './../actions/startGame';
+import { START_GAME, CLEAR_GAME } from './../actions/game';
 
 let initialState = {
   gameStarted: false,
@@ -10,6 +10,10 @@ const gameStarter = (state = initialState, { type }) => {
     case START_GAME:
       return Object.assign({}, state, {
         gameStarted: true
+      })
+    case CLEAR_GAME:
+      return Object.assign({}, state, {
+        gameStarted: false
       })
     default:
       return state;
