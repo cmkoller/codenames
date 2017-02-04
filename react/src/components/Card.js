@@ -15,10 +15,11 @@ class Card extends Component {
     let cardClassNames = () => {
       let result = "";
       let hinter = (userRole === "hinter");
+      let cardVisible = (hinter || revealed);
 
-      revealed ? result += `revealed ${team} ` : result += `hidden `
-      hinter ? result += `${team} ` : ""
-      assassin && hinter ? result += `assassin ` : ""
+      cardVisible ? result += `${team} ` : ""
+      revealed ? result += `revealed ` : result += `hidden `
+      assassin && cardVisible ? result += `assassin ` : ""
 
       return result;
     }
