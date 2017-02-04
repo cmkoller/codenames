@@ -26,7 +26,7 @@ class CardsView extends Component {
     var self = this;
 
     $.get(`/cards`).success(function(data) {
-      self.setState({cards: data.cards})
+      self.setState({cards: data})
     });
   }
 
