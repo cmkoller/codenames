@@ -2,10 +2,14 @@ import { push } from 'react-router-redux';
 import codeNamesApi from './../api/codeNamesApi';
 
 export const START_GAME = 'START_GAME';
+export const CLEAR_GAME = 'CLEAR_GAME';
 
-const markGameAsStarted = (cards) => ({
-    type: START_GAME,
-    cards: cards
+const markGameAsStarted = () => ({
+    type: START_GAME
+});
+
+const markGameAsCleared = () => ({
+    type: CLEAR_GAME
 });
 
 const startGame = () => dispatch => {
@@ -32,5 +36,15 @@ const loadStartedGame = () => dispatch => {
   dispatch(markGameAsStarted())
 };
 
+const clearGame = () => dispatch => {
+  return codeNamesApi.postClearGame()
+    .then(response => {
+      dispatch(markGameAsCleared())
+    });
+}
 
-export { startGame, loadStartedGame, checkStartedGame};
+const clearGameSession = () => dispatch => {
+  dispatch(markGameAsCleared())
+};
+
+export { startGame, loadStartedGame, checkStartedGame, clearGame, clearGameSession };
