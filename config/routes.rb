@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :messages, only: :create
   resources :players, only: [:index, :create, :update]
-  resources :games, only: [:index, :create]
+  resources :games, only: [:index, :create, :destroy]
   resources :cards, only: [:index, :update]
 
   # The priority is based upon order of creation: first created -> highest priority.
