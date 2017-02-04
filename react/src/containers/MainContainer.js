@@ -4,11 +4,19 @@ import { change, formValueSelector, reduxForm } from 'redux-form';
 import { loadUserData } from './../actions/loadUserData';
 import { postUsername } from './../actions/postUsername';
 import { postTeamRole } from './../actions/postTeamRole';
-import { startGame, loadStartedGame, checkStartedGame } from './../actions/startGame';
+import {
+  startGame,
+  loadStartedGame,
+  checkStartedGame,
+  clearGame,
+  clearGameSession
+} from './../actions/game';
+
 import WelcomeView from './../components/WelcomeView';
 import GamePlayContainer from './../containers/GamePlayContainer';
 import TeamView from './../components/TeamView';
 import ChatView from './../components/ChatView';
+import ResetButtons from './../components/ResetButtons';
 
 class MainContainer extends Component {
   componentWillMount() {
@@ -22,6 +30,10 @@ class MainContainer extends Component {
 
     this.players.bind('game_started', function(){
       this.props.loadStartedGame();
+    }, this);
+
+    this.players.bind('game_cleared', function(){
+      this.props.clearGameSession();
     }, this);
   }
 
@@ -94,11 +106,7 @@ class MainContainer extends Component {
         </div>
 
         <div className="col s12">
-          <div className="center-align">
-            <a className="btn" onClick={ () => {sessionStorage.clear();} }>
-              Clear Session
-            </a>
-          </div>
+          <ResetButtons clearGame={this.props.clearGame} />
         </div>
       </div>
     );
@@ -121,7 +129,9 @@ let mapDispatchToProps = (dispatch) => {
     postUsername: (username) => dispatch(postUsername(username)),
     postTeamRole: (username, team, role) => dispatch(postTeamRole(username, team, role)),
     checkStartedGame: () => dispatch(checkStartedGame()),
-    startGame: () => dispatch(startGame())
+    startGame: () => dispatch(startGame()),
+    clearGame: () => dispatch(clearGame()),
+    clearGameSession: () => dispatch(clearGameSession()),
   };
 }
 
