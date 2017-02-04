@@ -102,10 +102,6 @@ class MainContainer extends Component {
         </div>
 
         <div className="col s12">
-          <ChatView username={this.props.username} />
-        </div>
-
-        <div className="col s12">
           <ResetButtons
             user={this.props.user}
             clearGame={this.props.clearGame}
