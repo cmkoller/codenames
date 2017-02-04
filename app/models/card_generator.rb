@@ -1,8 +1,10 @@
 class CardGenerator
   def initialize
-    @words = import_words.shuffle
+    @words = []
     @cards = []
     @nums = (1..25).to_a.shuffle
+
+    select_words
   end
 
   def generate
@@ -41,33 +43,13 @@ class CardGenerator
     @cards << Card.create(word: @words.pop, team: ["blue", "red"].sample, order: @nums.pop)
   end
 
-  def import_words
-    [
-      "Buttstuff",
-      "Mario",
-      "Lamp",
-      "Lump",
-      "Garbage",
-      "Bouldering",
-      "Australia",
-      "Crevice",
-      "Astronaut",
-      "Record",
-      "Fireball",
-      "Parkour",
-      "Australopithecus",
-      "Monkey",
-      "Fblthp",
-      "Astr",
-      "Lance",
-      "Bubble",
-      "Link",
-      "Falcon",
-      "Gamecube",
-      "Panda",
-      "Pokemon",
-      "Luigi",
-      "Wizard"
-    ]
+  def select_words
+    while @words.length < 25
+      word = Word.offset(rand(Word.count)).first
+      @words << word
+      @words.uniq!
+    end
+
+    @words.shuffle!
   end
 end
