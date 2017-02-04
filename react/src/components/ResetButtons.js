@@ -6,6 +6,8 @@ class ResetButtons extends Component {
   }
 
   render() {
+    let username = this.props.user.username;
+
     return(
       <div className="center-align">
         <hr />
@@ -19,8 +21,8 @@ class ResetButtons extends Component {
         <br />
 
         <div>
-          <a className="btn" onClick={ () => {sessionStorage.clear(); location.reload();} }>
-            Clear Session
+          <a className="btn" onClick={ () => this.props.leaveGame(username) }>
+            Sign Out
           </a>
         </div>
       </div>

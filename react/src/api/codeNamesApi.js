@@ -4,6 +4,7 @@ import postStartGame from './postStartGame';
 import revealCard from './revealCard';
 import checkStartedGame from './checkStartedGame';
 import postClearGame from './postClearGame';
+import deleteUser from './deleteUser';
 
 class codeNamesApi {
   static postUsername(username) {
@@ -28,6 +29,10 @@ class codeNamesApi {
 
   static postClearGame() {
     return postClearGame();
+  }
+
+  static deleteUser(username) {
+    return deleteUser(username);
   }
 }
 

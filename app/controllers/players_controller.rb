@@ -36,6 +36,15 @@ class PlayersController < ApplicationController
     end
   end
 
+  def destroy
+    @player = Player.find_by(username: params["id"])
+    @player.destroy
+
+    respond_to do |format|
+      format.json { render json: {} }
+    end
+  end
+
   def player_params
     params.require(:player).permit(:username, :team, :role, :ready)
   end
