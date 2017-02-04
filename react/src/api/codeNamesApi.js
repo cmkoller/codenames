@@ -3,6 +3,7 @@ import postTeamRole from './postTeamRole';
 import postStartGame from './postStartGame';
 import revealCard from './revealCard';
 import checkStartedGame from './checkStartedGame';
+import postClearGame from './postClearGame';
 
 class codeNamesApi {
   static postUsername(username) {
@@ -23,6 +24,10 @@ class codeNamesApi {
 
   static revealCard(id) {
     return revealCard(id);
+  }
+
+  static postClearGame() {
+    return postClearGame();
   }
 }
 
