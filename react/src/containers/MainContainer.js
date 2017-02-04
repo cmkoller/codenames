@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { change, formValueSelector, reduxForm } from 'redux-form';
 import { loadUserData } from './../actions/loadUserData';
-import { postUsername } from './../actions/postUsername';
+import { postUsername, deleteUser } from './../actions/postUsername';
 import { postTeamRole } from './../actions/postTeamRole';
 import {
   startGame,
@@ -106,7 +106,11 @@ class MainContainer extends Component {
         </div>
 
         <div className="col s12">
-          <ResetButtons clearGame={this.props.clearGame} />
+          <ResetButtons
+            user={this.props.user}
+            clearGame={this.props.clearGame}
+            leaveGame={this.props.leaveGame}
+          />
         </div>
       </div>
     );
@@ -132,6 +136,7 @@ let mapDispatchToProps = (dispatch) => {
     startGame: () => dispatch(startGame()),
     clearGame: () => dispatch(clearGame()),
     clearGameSession: () => dispatch(clearGameSession()),
+    leaveGame: (username) => dispatch(deleteUser(username))
   };
 }
 
