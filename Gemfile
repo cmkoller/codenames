@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'active_model_serializers'
 gem 'pusher'
-gem 'materialize-sass'
+# gem 'materialize-sass'
 
 group :development, :test do
   gem 'pry-rails'
