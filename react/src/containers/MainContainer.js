@@ -78,7 +78,7 @@ class MainContainer extends Component {
     return(
       <div className="row">
         <div className="col m3">
-          <div className="card red">
+          <div className="card red darken-3">
             <TeamView
               displayedTeam="red"
               user={this.props.user}
@@ -92,7 +92,7 @@ class MainContainer extends Component {
         </div>
 
         <div className="col m3">
-          <div className="card blue">
+          <div className="card blue darken-2">
             <TeamView
               displayedTeam="blue"
               user={this.props.user}
