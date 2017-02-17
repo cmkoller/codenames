@@ -24,40 +24,9 @@ class TeamSelection extends Component {
     let postTeamRole = this.props.postTeamRole;
 
     return(
-      <div>
+      <div className="center-align">
         <h4>Welcome, {username}!</h4>
-        <h3>Choose your team:</h3>
-        <div className="col m6">
-          <div className="card red" value="red" onClick={() => postTeamRole({username: username, team: "red", role: "hinter"})}>
-            <div className="card-content">
-              <span className="card-title">Red Hinter</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="col m6">
-          <div className="card blue" value="red" onClick={() => postTeamRole({username: username, team: "blue", role: "hinter"})}>
-            <div className="card-content">
-              <span className="card-title">Blue Hinter</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="col m6">
-          <div className="card red" value="red" onClick={() => postTeamRole({username: username, team: "red", role: "guesser"})}>
-            <div className="card-content">
-              <span className="card-title">Red Guesser</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="col m6">
-          <div className="card blue" value="red" onClick={() => postTeamRole({username: username, team: "blue", role: "guesser"})}>
-            <div className="card-content">
-              <span className="card-title">Blue Guesser</span>
-            </div>
-          </div>
-        </div>
+        <h3>Choose your team!</h3>
       </div>
     );
   }
