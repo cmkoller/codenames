@@ -18,3 +18,10 @@
 @import 'codenames-tile';
 @import 'reset-buttons';
 @import 'overrides/*';
+
+.text-list {
+  padding-left: 40px !important;
+  li {
+    list-style-type: initial !important;
+  }
+}

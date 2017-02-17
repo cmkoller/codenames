@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root "homes#index"
   get "/play" => "homes#index"
+  get "/about" => "homes#about"
 
   resources :messages, only: :create
   resources :players, only: [:index, :create, :update, :destroy]
