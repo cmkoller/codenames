@@ -106,6 +106,7 @@ class MainContainer extends Component {
             user={this.props.user}
             clearGame={this.props.clearGame}
             leaveGame={this.props.leaveGame}
+            gameStarted={this.props.gameStarted}
           />
         </div>
       </div>
