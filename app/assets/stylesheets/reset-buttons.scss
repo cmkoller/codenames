@@ -1,0 +1,13 @@
+.reset-button-section {
+  border-top: 1px dashed #333;
+}
+
+.reset-button {
+  padding: 0 40px;
+  margin: 15px 0;
+  display: inline-block;
+
+  &:not(:last-child) {
+    border-right: 1px dashed #333;
+  }
+}
