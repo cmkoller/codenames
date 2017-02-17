@@ -83,6 +83,7 @@ class MainContainer extends Component {
               displayedTeam="red"
               user={this.props.user}
               postTeamRole={this.props.postTeamRole}
+              gameStarted={this.props.gameStarted}
             />
           </div>
         </div>
@@ -97,6 +98,7 @@ class MainContainer extends Component {
               displayedTeam="blue"
               user={this.props.user}
               postTeamRole={this.props.postTeamRole}
+              gameStarted={this.props.gameStarted}
             />
           </div>
         </div>
