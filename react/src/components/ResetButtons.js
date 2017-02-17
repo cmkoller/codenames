@@ -9,18 +9,14 @@ class ResetButtons extends Component {
     let username = this.props.user.username;
 
     return(
-      <div className="center-align">
-        <hr />
-
-        <div>
+      <div className="center-align reset-button-section">
+        <div className="reset-button">
           <a className="btn" onClick={ () => this.props.clearGame() }>
-            WIPE THAT GAME!
+            Reset Game
           </a>
         </div>
 
-        <br />
-
-        <div>
+        <div className="reset-button">
           <a className="btn" onClick={ () => this.props.leaveGame(username) }>
             Sign Out
           </a>
