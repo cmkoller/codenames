@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const JoinTeamRoleButton = ({ team, role, user, postTeamRole}) => {
+const JoinTeamRoleButton = ({ team, role, user, postTeamRole, gameStarted}) => {
   if (user) {
     let updatePlayerRole = () => {
       postTeamRole({username: user.username, team: team, role: role})
@@ -9,7 +9,7 @@ const JoinTeamRoleButton = ({ team, role, user, postTeamRole}) => {
     let username = user.username;
     let userIsThisThing = user.role === role && user.team === team
 
-    if (username && !userIsThisThing) {
+    if (username && !userIsThisThing && !gameStarted) {
       return (
         <button className="btn" onClick={updatePlayerRole}>Join</button>
       );
@@ -88,6 +88,7 @@ class TeamView extends Component {
           role="hinter"
           user={this.props.user}
           postTeamRole={this.props.postTeamRole}
+          gameStarted={this.props.gameStarted}
          />
 
         <h5>Guessers:</h5>
@@ -101,6 +102,7 @@ class TeamView extends Component {
           role="guesser"
           user={this.props.user}
           postTeamRole={this.props.postTeamRole}
+          gameStarted={this.props.gameStarted}
          />
 
       </div>
