@@ -1,17 +1,9 @@
 class Api::V1::PlayersController < ApplicationController
   def index
-    if params["team"] == "red"
-      @players = Player.where(team: 0)
-    elsif params["team"] == "blue"
-      @players = Player.where(team: 1)
-    end
-
-    respond_to do |format|
-      format.json { render json: {
-          hinters: @players.where(role: 0) ,
-          guessers: @players.where(role: 1)
-        } }
-    end
+    render json: {
+      hinters: Player.where(role: 0, team: params["team"]),
+      guessers: Player.where(role: 1, team: params["team"])
+    }
   end
 
   def create
@@ -20,9 +12,7 @@ class Api::V1::PlayersController < ApplicationController
     @player.save
     Pusher.trigger('players', 'new_player', {})
 
-    respond_to do |format|
-      format.json { render json: { success: true }.to_json }
-    end
+    render json: { success: true }.to_json
   end
 
   def update
@@ -31,18 +21,14 @@ class Api::V1::PlayersController < ApplicationController
 
     Pusher.trigger('players', 'new_player', {})
 
-    respond_to do |format|
-      format.json { render json: { success: true }.to_json }
-    end
+    render json: { success: true }.to_json
   end
 
   def destroy
     @player = Player.find_by(username: params["id"])
     @player.destroy
 
-    respond_to do |format|
-      format.json { render json: {} }
-    end
+    render json: {}
   end
 
   def player_params
