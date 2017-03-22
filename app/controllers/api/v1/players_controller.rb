@@ -1,4 +1,4 @@
-class PlayersController < ApplicationController
+class Api::V1::PlayersController < ApplicationController
   def index
     if params["team"] == "red"
       @players = Player.where(team: 0)

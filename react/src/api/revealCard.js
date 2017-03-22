@@ -6,7 +6,7 @@ let revealCard = (id) => {
     }
   });
 
-  return fetch(`${codeNamesUrl}/cards/${id}`, {
+  return fetch(`${codeNamesUrl}/api/v1/cards/${id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body
