@@ -1,9 +1,8 @@
 import codeNamesUrl from '../../constants/codeNamesUrl';
 
 let postUsername = (username) => {
-  let body = JSON.stringify({ player: {
-      username: username
-    }
+  let body = JSON.stringify({
+    username: username
   });
 
   return fetch(`${codeNamesUrl}/api/v1/players`, {
