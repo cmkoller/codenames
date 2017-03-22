@@ -46,7 +46,7 @@ class TeamView extends Component {
   _getUpdatedPlayers() {
     var self = this;
 
-    $.get(`/players?team=${this.props.displayedTeam}`).success(function(data) {
+    $.get(`/api/v1/players?team=${this.props.displayedTeam}`).success(function(data) {
       self.setState({players: data})
     });
   }

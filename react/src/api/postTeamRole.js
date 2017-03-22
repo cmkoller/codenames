@@ -10,7 +10,7 @@ let postTeamRole = (userData) => {
     }
   });
 
-  return fetch(`${codeNamesUrl}/players/${username}`, {
+  return fetch(`${codeNamesUrl}/api/v1/players/${username}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body

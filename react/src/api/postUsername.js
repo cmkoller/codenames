@@ -6,7 +6,7 @@ let postUsername = (username) => {
     }
   });
 
-  return fetch(`${codeNamesUrl}/players`, {
+  return fetch(`${codeNamesUrl}/api/v1/players`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body

@@ -1,4 +1,4 @@
-class CardsController < ApplicationController
+class Api::V1::CardsController < ApplicationController
   def index
     @cards = Card.order(:order)
     respond_to do |format|
