@@ -12,6 +12,11 @@ gem 'pusher'
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end
 
 group :development do
