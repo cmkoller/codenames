@@ -15,7 +15,6 @@ import {
 import WelcomeView from './../components/WelcomeView';
 import GamePlayContainer from './../containers/GamePlayContainer';
 import TeamView from './../components/TeamView';
-import ChatView from './../components/ChatView';
 import ResetButtons from './../components/ResetButtons';
 
 class MainContainer extends Component {
