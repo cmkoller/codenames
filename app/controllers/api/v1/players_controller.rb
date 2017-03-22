@@ -8,11 +8,14 @@ class Api::V1::PlayersController < ApplicationController
 
   def create
     @player = Player.create(player_params)
-    @player.role = 1
-    @player.save
-    Pusher.trigger('players', 'new_player', {})
+    
+    if @player.save
+      Pusher.trigger('players', 'new_player', {})
 
-    render json: { success: true }.to_json
+      render json: { success: true }.to_json
+    else
+      render status: :unprocessable_entity, json: { error: "Please provide a username." }.to_json
+    end
   end
 
   def update
@@ -32,6 +35,6 @@ class Api::V1::PlayersController < ApplicationController
   end
 
   def player_params
-    params.require(:player).permit(:username, :team, :role, :ready)
+    params.permit(:username, :team, :role, :ready)
   end
 end
