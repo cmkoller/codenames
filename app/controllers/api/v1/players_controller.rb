@@ -20,11 +20,14 @@ class Api::V1::PlayersController < ApplicationController
 
   def update
     @player = Player.find_by(username: params["id"])
-    @player.update_attributes(player_params)
 
-    Pusher.trigger('players', 'new_player', {})
+    if @player.update(player_params)
+      Pusher.trigger('players', 'new_player', {})
 
-    render json: { success: true }.to_json
+      render json: { success: true }.to_json
+    else
+      render status: :unprocessable_entity, json: { error: @player.errors.full_messages.join(", ") }.to_json
+    end
   end
 
   def destroy
