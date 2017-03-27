@@ -1,8 +1,8 @@
 class Api::V1::PlayersController < ApplicationController
   def index
     render json: {
-      hinters: Player.where(role: 0, team: params["team"]),
-      guessers: Player.where(role: 1, team: params["team"])
+      hinters: Player.where(role: "hinter", team: params["team"]),
+      guessers: Player.where(role: "guesser", team: params["team"])
     }
   end
 
