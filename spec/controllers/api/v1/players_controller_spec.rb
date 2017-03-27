@@ -50,4 +50,21 @@ describe Api::V1::PlayersController do
       expect(body["error"]).to eq("Please provide a username.")
     end
   end
+
+  describe "#update" do
+    let!(:player) { create(:player) }
+
+    it "returns success when provided valid params" do
+      post :update, id: player.username, team: "red", role: "guesser", ready: 1
+
+      expect(response.status).to eq(200)
+    end
+
+    it "returns an error when not provided valid params" do
+      post :update, id: player.username, team: "nope"
+
+      expect(response.status).to eq(422)
+      expect(body["error"]).to eq("Team is not included in the list")
+    end
+  end
 end
