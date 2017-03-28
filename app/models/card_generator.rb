@@ -1,4 +1,6 @@
 class CardGenerator
+  attr_reader :words, :cards
+
   def initialize
     @words = []
     @cards = []
@@ -44,6 +46,8 @@ class CardGenerator
   end
 
   def select_words
+    raise InsufficientWordsError if Word.count < 25
+
     while @words.length < 25
       word = Word.offset(rand(Word.count)).first
       @words << word
@@ -51,5 +55,8 @@ class CardGenerator
     end
 
     @words.shuffle!
+  end
+
+  class InsufficientWordsError < StandardError
   end
 end
