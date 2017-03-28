@@ -1,10 +1,7 @@
 class Api::V1::GamesController < ApplicationController
   def index
     playing = Game.any?
-
-    respond_to do |format|
-      format.json { render json: { playing: playing } }
-    end
+    render json: { playing: playing }
   end
 
   def create
@@ -13,11 +10,7 @@ class Api::V1::GamesController < ApplicationController
 
     Pusher.trigger('games', 'game_started', {})
 
-    respond_to do |format|
-      format.json { render json: {
-          cards: @cards
-        } }
-    end
+    render json: { cards: @cards }
   end
 
   def destroy
@@ -25,8 +18,6 @@ class Api::V1::GamesController < ApplicationController
     Card.destroy_all
     Pusher.trigger('games', 'game_cleared', {})
 
-    respond_to do |format|
-      format.json { render json: { } }
-    end
+    render json: {}
   end
 end
