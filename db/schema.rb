@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204004339) do
+ActiveRecord::Schema.define(version: 20170327024715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
-    t.integer "team"
     t.boolean "revealed", default: false
     t.integer "order"
     t.boolean "assassin", default: false
     t.integer "word_id",                  null: false
+    t.string  "team"
   end
 
   add_index "cards", ["word_id"], name: "index_cards_on_word_id", unique: true, using: :btree
@@ -30,16 +30,11 @@ ActiveRecord::Schema.define(version: 20170204004339) do
     t.boolean "started", default: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.string "username"
-    t.string "text"
-  end
-
   create_table "players", force: :cascade do |t|
     t.string  "username"
-    t.integer "team"
-    t.integer "role"
     t.boolean "ready",    default: false
+    t.string  "team"
+    t.string  "role"
   end
 
   create_table "words", force: :cascade do |t|

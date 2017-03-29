@@ -25,7 +25,7 @@ class CardsView extends Component {
   _getUpdatedCards() {
     var self = this;
 
-    $.get(`/cards`).success(function(data) {
+    $.get(`/api/v1/cards`).success(function(data) {
       self.setState({cards: data})
     });
   }

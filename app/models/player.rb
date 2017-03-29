@@ -1,4 +1,8 @@
 class Player < ActiveRecord::Base
-  enum team: { red: 0, blue: 1 }
-  enum role: { hinter: 0, guesser: 1}
+  TEAMS = ["red", "blue"]
+  ROLES = ["hinter", "guesser"]
+
+  validates :username, presence: true
+  validates :team, inclusion: { in: TEAMS, allow_nil: true }
+  validates :role, inclusion: { in: ROLES, allow_nil: true }
 end

@@ -1,7 +1,7 @@
 import codeNamesUrl from '../../constants/codeNamesUrl';
 
 let checkStartedGame = () => {
-  return fetch(`${codeNamesUrl}/games`, {
+  return fetch(`${codeNamesUrl}/api/v1/games`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   });

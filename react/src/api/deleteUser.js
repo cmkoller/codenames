@@ -6,7 +6,7 @@ let deleteUser = (username) => {
     }
   });
 
-  return fetch(`${codeNamesUrl}/players/${username}`, {
+  return fetch(`${codeNamesUrl}/api/v1/players/${username}`, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
     body
