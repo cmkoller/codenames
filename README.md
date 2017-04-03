@@ -24,8 +24,8 @@ rake db:migrate
 rake db:seed
 ```
 
-To *compile the React code*, run `npm start`. Once a build has completed, you may either exit out of this command, or keep it running to automatically re-build the compiled javascript every time you change your React files!
+To **compile the React code**, run `npm start`. Once a build has completed, you may either exit out of this command, or keep it running to automatically re-build the compiled javascript every time you change your React files!
 
-To *view the application* in your browser, run `rails s` and visit [localhost:3000][http://localhost:3000].
+To **view the application** in your browser, run `rails s` and visit [localhost:3000][http://localhost:3000].
 
-To *run the test suite*, run `rake spec`.
+To **run the test suite**, run `rake spec`.
