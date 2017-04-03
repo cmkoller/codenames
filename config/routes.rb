@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "homes#welcome"
   get "/play" => "homes#index"
-  get "/about" => "homes#about"
+  get "/about" => "homes#welcome"
 
   namespace :api do
     namespace :v1 do
