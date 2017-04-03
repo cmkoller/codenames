@@ -73,9 +73,12 @@ class TeamView extends Component {
       )
     }
 
+    let displayedTeam = this.props.displayedTeam
+    displayedTeam = displayedTeam[0].toUpperCase() + displayedTeam.substring(1)
+
     return(
       <div className="card-content white-text">
-        <h4>{this.props.displayedTeam} Players</h4>
+        <h4>{displayedTeam} Players</h4>
 
         <h5>Hinters:</h5>
 
